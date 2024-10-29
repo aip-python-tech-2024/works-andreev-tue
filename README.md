@@ -1,8 +1,10 @@
-# Андреев Николай Владимирович
+# Yet Another NSW Library Manager
 
-## Краткое описание
+Бот для управления личной библиотекой игр на Nintendo Switch с возможностью посмотреть, у кого ещё есть такая же игра. 
 
-Тут будет *описание* ~~моего~~ проекта по курсу "Технологии программирования на Python". Проект ***~~будет~~*** **очень** интересный.
+![](nsw-cartridges.jpg)
+
+[Jacob Spaccavento](https://unsplash.com/@sp_cca?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash), [Unsplash](https://unsplash.com/photos/a-couple-of-nintendo-games-sitting-on-top-of-a-wooden-table-BaVfcEowKqw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
 
 ## Функциональные возможности
 
@@ -25,10 +27,6 @@
 4. Адрес кошелька `ETH`
 5. Адрес кошелька `HMSTR`
 6. Контракт на обучение в ![test](https://itmo.ru/pic/favicon.ico) [ИТМО](https://itmo.ru/)
-
-![image from site](https://itmo.ru/file/pages/213/slogan_na_plashke_belyy-01.png)
-
-![local image](img.png)
 
 ## Пример кода
 
