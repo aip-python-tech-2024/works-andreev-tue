@@ -1,9 +1,3 @@
-#
-
-#
-# print(data['response']['docs'][0]['title'])
-# print(data['response']['docs'][1]['title'])
-
 import telebot
 from dotenv import load_dotenv
 import requests
