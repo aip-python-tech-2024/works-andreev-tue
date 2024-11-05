@@ -58,20 +58,20 @@ def add_game_price(message):
 
     markup = InlineKeyboardMarkup(row_width=2)
     markup.add(
-        InlineKeyboardButton('Yes', callback_data='yes'),
-        InlineKeyboardButton('No', callback_data='no')
+        InlineKeyboardButton('Yes', callback_data='gd_yes'),
+        InlineKeyboardButton('No', callback_data='gd_no')
     )
 
     bot.reply_to(message, info_reply, reply_markup=markup)
 
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_query(call):
-    if call.data == 'yes':
-        bot.answer_callback_query(call.id, 'Answer is Yes')
+@bot.callback_query_handler(func=lambda call: call.data.startswith('gd_'))
+def check_new_game_info(call):
+    if call.data == 'gd_yes':
+        bot.answer_callback_query(call.id, 'Successfully added\!')
         bot.send_message(call.message.chat.id, 'Successfully added\!')
-    elif call.data == 'no':
-        bot.answer_callback_query(call.id, 'Answer is No')
+    elif call.data == 'gd_no':
+        bot.answer_callback_query(call.id, 'Fill the form again')
         add_game_init(call.message)
 
 
