@@ -6,12 +6,31 @@ from os import getenv
 load_dotenv()
 
 TOKEN = getenv('TOKEN')
-bot = telebot.TeleBot(TOKEN, parse_mode=None)
+bot = telebot.TeleBot(TOKEN, parse_mode='MarkdownV2')
 
 
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Howdy, how are you doing?")
+    reply = r'''Hi\! This bot will help you to manage your Nintendo Switch games library\. You can:
+
+• Add your games with purchase price\.
+• Get some useful information from eShop\.
+• Find buddies with same games\.
+
+Detailed instructions are available via /help command\. Enjoy\!'''
+
+    bot.reply_to(message, reply)
+
+
+@bot.message_handler(commands=['help'])
+def send_help(message):
+    reply = r'''Available commands:
+
+• /add new game to your library\. We will ask you some questions about your new game\.
+• /find game information from eShop by its name or code \(you can find this code on cartridge\)\.
+• /list your games with information\.'''
+
+    bot.reply_to(message, reply)
 
 
 @bot.message_handler(commands=['games'])
