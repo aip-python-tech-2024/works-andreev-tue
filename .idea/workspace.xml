@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e04f5c-64f7-4c06-8545-0abc4e0c42ad" name="Changes" comment="feat: add bot skeleton">
+    <list default="true" id="56e04f5c-64f7-4c06-8545-0abc4e0c42ad" name="Changes" comment="style: remove unnecessary comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/bakasa/Sources/Python/works-andreev-tue-2024",
     "node.js.detected.package.eslint": "true",
@@ -71,7 +72,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -113,8 +114,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-bed05e336f61-JavaScript-PY-243.21155.22" />
-        <option value="bundled-python-sdk-5ff8a29a62a8-ca77fbc60dd9-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21155.22" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.33" />
+        <option value="bundled-python-sdk-4bb9488c150a-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.33" />
       </set>
     </attachedChunks>
   </component>
@@ -130,7 +131,10 @@
       <workItem from="1729007358520" duration="389000" />
       <workItem from="1729178956006" duration="23000" />
       <workItem from="1729606536763" duration="6168000" />
-      <workItem from="1730210841430" duration="6341000" />
+      <workItem from="1730210841430" duration="7121000" />
+      <workItem from="1730383292776" duration="17000" />
+      <workItem from="1730805086668" duration="61000" />
+      <workItem from="1730805155167" duration="1133000" />
     </task>
     <task id="LOCAL-00001" summary="docs: update readme">
       <option name="closed" value="true" />
@@ -180,7 +184,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730216825495</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add command for 10 last updated games">
+      <option name="closed" value="true" />
+      <created>1730217381241</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730217381241</updated>
+    </task>
+    <task id="LOCAL-00008" summary="style: remove unnecessary comments">
+      <option name="closed" value="true" />
+      <created>1730217418989</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730217418989</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,9 +223,11 @@
     <MESSAGE value="docs: add Markdown example" />
     <MESSAGE value="docs: add short project description" />
     <MESSAGE value="feat: add bot skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add bot skeleton" />
+    <MESSAGE value="feat: add command for 10 last updated games" />
+    <MESSAGE value="style: remove unnecessary comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: remove unnecessary comments" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/works_andreev_tue_2024$main.coverage" NAME="main Coverage Results" MODIFIED="1730217255826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/works_andreev_tue_2024$main.coverage" NAME="main Coverage Results" MODIFIED="1730217317700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
