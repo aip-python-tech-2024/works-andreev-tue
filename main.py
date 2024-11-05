@@ -2,11 +2,14 @@ import telebot
 from dotenv import load_dotenv
 import requests
 from os import getenv
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 load_dotenv()
 
 TOKEN = getenv('TOKEN')
 bot = telebot.TeleBot(TOKEN, parse_mode='MarkdownV2')
+
+add_data = {}
 
 
 @bot.message_handler(commands=['start'])
@@ -33,6 +36,45 @@ def send_help(message):
     bot.reply_to(message, reply)
 
 
+@bot.message_handler(commands=['add'])
+def add_game_init(message):
+    bot.send_message(message.chat.id, 'Send me *game name*')
+    bot.register_next_step_handler(message, add_game_name)
+
+
+def add_game_name(message):
+    global add_data
+    add_data[message.chat.id] = [message.text]
+    bot.reply_to(message, 'Perfect, now send me purchase price in dollars, for example *59\.99*')
+    bot.register_next_step_handler(message, add_game_price)
+
+
+def add_game_price(message):
+    global add_data
+    add_data[message.chat.id].append(float(message.text))
+    bot.reply_to(message, 'Nice, now check your info')
+    info_reply = f'{add_data[message.chat.id][0]}: {add_data[message.chat.id][1]}'.replace('.', r'\.')
+    print(info_reply)
+
+    markup = InlineKeyboardMarkup(row_width=2)
+    markup.add(
+        InlineKeyboardButton('Yes', callback_data='yes'),
+        InlineKeyboardButton('No', callback_data='no')
+    )
+
+    bot.reply_to(message, info_reply, reply_markup=markup)
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_query(call):
+    if call.data == 'yes':
+        bot.answer_callback_query(call.id, 'Answer is Yes')
+        bot.send_message(call.message.chat.id, 'Successfully added\!')
+    elif call.data == 'no':
+        bot.answer_callback_query(call.id, 'Answer is No')
+        add_game_init(call.message)
+
+
 @bot.message_handler(commands=['games'])
 def send_games(message):
     url = 'https://search.nintendo-europe.com/en/select?fq=type%3AGAME+AND+system_type%3Anintendoswitch*+AND+product_code_txt%3A*&q=*&sort=change_date+desc&start=0&wt=json&rows=10'
@@ -43,7 +85,7 @@ def send_games(message):
 
 @bot.message_handler(func=lambda m: True)
 def echo_all(message):
-    bot.reply_to(message, message.text)
+    bot.reply_to(message, 'Cannot proceed this message, try again')
 
 
 bot.infinity_polling()
