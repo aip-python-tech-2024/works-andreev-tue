@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import requests
 from os import getenv
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
+from telebot.formatting import escape_markdown
 
 load_dotenv()
 
@@ -79,8 +80,9 @@ def check_new_game_info(call):
 def send_games(message):
     url = 'https://search.nintendo-europe.com/en/select?fq=type%3AGAME+AND+system_type%3Anintendoswitch*+AND+product_code_txt%3A*&q=*&sort=change_date+desc&start=0&wt=json&rows=10'
     data = requests.get(url).json()
+    print(data['response']['docs'][0])
     response = '\n'.join([game['title'] for game in data['response']['docs']])
-    bot.send_message(message.chat.id, response)
+    bot.send_message(message.chat.id, escape_markdown(response))
 
 
 @bot.message_handler(func=lambda m: True)
