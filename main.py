@@ -4,6 +4,7 @@ import requests
 from os import getenv
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from telebot.formatting import escape_markdown
+import database
 
 load_dotenv()
 
@@ -23,7 +24,7 @@ def send_welcome(message):
 
 Detailed instructions are available via /help command\. Enjoy\!'''
 
-    bot.reply_to(message, reply)
+    bot.send_message(message.chat.id, reply)
 
 
 @bot.message_handler(commands=['help'])
@@ -34,7 +35,7 @@ def send_help(message):
 • /find game information from eShop by its name or code \(you can find this code on cartridge\)\.
 • /list your games with information\.'''
 
-    bot.reply_to(message, reply)
+    bot.send_message(message.chat.id, reply)
 
 
 @bot.message_handler(commands=['add'])
@@ -45,17 +46,16 @@ def add_game_init(message):
 
 def add_game_name(message):
     global add_data
-    add_data[message.chat.id] = [message.text]
-    bot.reply_to(message, 'Perfect, now send me purchase price in dollars, for example *59\.99*')
+    add_data[message.chat.id] = {'name': message.text}
+    bot.send_message(message.chat.id, 'Perfect, now send me purchase price in dollars, for example *59\.99*')
     bot.register_next_step_handler(message, add_game_price)
 
 
 def add_game_price(message):
     global add_data
-    add_data[message.chat.id].append(float(message.text))
-    bot.reply_to(message, 'Nice, now check your info')
-    info_reply = f'{add_data[message.chat.id][0]}: {add_data[message.chat.id][1]}'.replace('.', r'\.')
-    print(info_reply)
+    add_data[message.chat.id]['price'] = float(message.text)
+    bot.send_message(message.chat.id, 'Nice, now check your info')
+    info_reply = f'{add_data[message.chat.id]["name"]}: {add_data[message.chat.id]["price"]}'
 
     markup = InlineKeyboardMarkup(row_width=2)
     markup.add(
@@ -63,15 +63,20 @@ def add_game_price(message):
         InlineKeyboardButton('No', callback_data='gd_no')
     )
 
-    bot.reply_to(message, info_reply, reply_markup=markup)
+    bot.send_message(message.chat.id, escape_markdown(info_reply), reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: call.data.startswith('gd_'))
 def check_new_game_info(call):
     if call.data == 'gd_yes':
-        bot.answer_callback_query(call.id, 'Successfully added\!')
+        database.add_game(call.message.chat.id, add_data[call.message.chat.id])
+        add_data[call.message.chat.id] = {}
+
+        bot.answer_callback_query(call.id, 'Successfully added!')
         bot.send_message(call.message.chat.id, 'Successfully added\!')
     elif call.data == 'gd_no':
+        add_data[call.message.chat.id] = {}
+
         bot.answer_callback_query(call.id, 'Fill the form again')
         add_game_init(call.message)
 
