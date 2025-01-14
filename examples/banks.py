@@ -28,13 +28,13 @@ class Client:
     @name.setter
     def name(self, name):
         if not isinstance(name, str):
-            print('Name must be a string')
+            raise ValueError('Name must be a string')
 
         # Убираем начальные и конечные пробелы
         name = name.strip()
 
         if name == '':
-            print('Name cannot be empty')
+            raise ValueError('Name cannot be empty')
 
         self.__name = name
 
@@ -44,13 +44,13 @@ class Client:
 
     def set_name(self, name):
         if not isinstance(name, str):
-            return False
+            raise ValueError('Name must be a string')
 
         # Убираем начальные и конечные пробелы
         name = name.strip()
 
         if name == '':
-            return False
+            raise ValueError('Name cannot be empty')
 
         self.__name = name
 
@@ -60,10 +60,10 @@ class Client:
     def send_to(self, receiver, amount):
         if amount > self._balance:
             # В идеале выкинуть исключение
-            return False
+            raise ValueError('Amount cannot be greater than balance')
 
         if not isinstance(receiver, Client):
-            return False
+            raise ValueError('Receiver must be a Client')
 
         self._balance -= amount
         receiver._balance += amount
@@ -71,8 +71,8 @@ class Client:
     def pay_for_maintenance(self):
         amount = 10
         if amount > self._balance:
-            print('Not enough balance for account maintenance')
-            return False
+            raise ValueError('Not enough balance for account maintenance')
+
         self._balance -= amount
 
 
@@ -83,8 +83,8 @@ class VipClient(Client):
     def pay_for_maintenance(self):
         amount = 5
         if amount > self._balance:
-            print('Not enough balance for account maintenance')
-            return False
+            raise ValueError('Not enough balance for account maintenance')
+
         self._balance -= amount
 
 
@@ -95,8 +95,11 @@ friends_passport = PassportInfo('9876', '543210', datetime.now())
 friend = VipClient('Dewili', friends_passport, 200)
 print(me, friend)
 
-me.send_to(friend, 150)
-print(me, friend)
+try:
+    me.send_to(friend, 150)
+    print(me, friend)
+except ValueError as e:
+    print(e)
 
 friend.send_to(me, 150)
 print(me, friend)
@@ -119,6 +122,11 @@ friend.name += ' Andreev'
 
 print(me.name)
 print(friend.name)
+
+try:
+    friend.name = '       '
+except ValueError as e:
+    print('Something went wrong:', e)
 
 me.pay_for_maintenance()
 friend.pay_for_maintenance()

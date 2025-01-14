@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e04f5c-64f7-4c06-8545-0abc4e0c42ad" name="Changes" comment="feat: add OOP principles demos">
+    <list default="true" id="56e04f5c-64f7-4c06-8545-0abc4e0c42ad" name="Changes" comment="feat: add inheritance and association examples">
+      <change afterPath="$PROJECT_DIR$/examples/exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/animals.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/animals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/banks.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/banks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +65,7 @@
     "Python.animals.executor": "Run",
     "Python.banks.executor": "Run",
     "Python.database.executor": "Run",
+    "Python.exceptions.executor": "Run",
     "Python.main.executor": "Run",
     "Python.multiple-inheritance.executor": "Run",
     "Python.user.executor": "Run",
@@ -78,7 +79,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -137,7 +138,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="exceptions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="works-andreev-tue-2024" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,12 +147,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/exceptions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -209,10 +210,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.banks" />
+        <item itemvalue="Python.exceptions" />
         <item itemvalue="Python.multiple-inheritance" />
         <item itemvalue="Python.animals" />
         <item itemvalue="Python.user" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +249,11 @@
       <workItem from="1733333570167" duration="608000" />
       <workItem from="1734442078756" duration="7539000" />
       <workItem from="1734617075536" duration="14000" />
-      <workItem from="1735050065997" duration="3893000" />
+      <workItem from="1735050065997" duration="5343000" />
+      <workItem from="1736266651870" duration="56000" />
+      <workItem from="1736266715231" duration="25000" />
+      <workItem from="1736428906086" duration="3000" />
+      <workItem from="1736861936277" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="docs: update readme">
       <option name="closed" value="true" />
@@ -410,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734449247306</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="feat: add inheritance and association examples">
+      <option name="closed" value="true" />
+      <created>1735054309645</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1735054309645</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,13 +460,15 @@
     <MESSAGE value="feat: add User model" />
     <MESSAGE value="feat: add User class" />
     <MESSAGE value="feat: add OOP principles demos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add OOP principles demos" />
+    <MESSAGE value="feat: add inheritance and association examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add inheritance and association examples" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/works_andreev_tue_2024$animals.coverage" NAME="animals Coverage Results" MODIFIED="1735051400270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/works_andreev_tue_2024$exceptions.coverage" NAME="exceptions Coverage Results" MODIFIED="1736867230449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/works_andreev_tue_2024$multiple_inheritance.coverage" NAME="multiple-inheritance Coverage Results" MODIFIED="1735052207654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
     <SUITE FILE_PATH="coverage/works_andreev_tue_2024$user.coverage" NAME="user Coverage Results" MODIFIED="1733239642494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/works_andreev_tue_2024$banks.coverage" NAME="banks Coverage Results" MODIFIED="1735053516836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/works_andreev_tue_2024$banks.coverage" NAME="banks Coverage Results" MODIFIED="1736867511081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/works_andreev_tue_2024$main.coverage" NAME="main Coverage Results" MODIFIED="1731426562660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/works_andreev_tue_2024$database.coverage" NAME="database Coverage Results" MODIFIED="1731425403666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
