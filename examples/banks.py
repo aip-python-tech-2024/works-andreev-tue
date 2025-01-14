@@ -1,6 +1,10 @@
 from datetime import datetime
 
 
+class NotEnoughBalanceError(Exception):
+    pass
+
+
 class PassportInfo:
     def __init__(self, passport_serial, passport_number, issued_at):
         self.__passport_serial = passport_serial
@@ -60,7 +64,7 @@ class Client:
     def send_to(self, receiver, amount):
         if amount > self._balance:
             # В идеале выкинуть исключение
-            raise ValueError('Amount cannot be greater than balance')
+            raise NotEnoughBalanceError('Amount cannot be greater than balance')
 
         if not isinstance(receiver, Client):
             raise ValueError('Receiver must be a Client')
@@ -71,7 +75,7 @@ class Client:
     def pay_for_maintenance(self):
         amount = 10
         if amount > self._balance:
-            raise ValueError('Not enough balance for account maintenance')
+            raise NotEnoughBalanceError('Not enough balance for account maintenance')
 
         self._balance -= amount
 
@@ -83,7 +87,7 @@ class VipClient(Client):
     def pay_for_maintenance(self):
         amount = 5
         if amount > self._balance:
-            raise ValueError('Not enough balance for account maintenance')
+            raise NotEnoughBalanceError('Not enough balance for account maintenance')
 
         self._balance -= amount
 
@@ -98,8 +102,13 @@ print(me, friend)
 try:
     me.send_to(friend, 150)
     print(me, friend)
+except NotEnoughBalanceError as e:
+    # Можно отправить уведомление, например
+    print('Not enough balance')
 except ValueError as e:
     print(e)
+except:
+    print('Some strange error')
 
 friend.send_to(me, 150)
 print(me, friend)

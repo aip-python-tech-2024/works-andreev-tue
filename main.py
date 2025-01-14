@@ -95,4 +95,7 @@ def echo_all(message):
     bot.reply_to(message, 'Cannot proceed this message, try again')
 
 
-bot.infinity_polling()
+try:
+    bot.infinity_polling()
+except KeyboardInterrupt:
+    print('Bye!')
