@@ -6,6 +6,10 @@ class NotEnoughBalanceError(Exception):
 
 
 class PassportInfo:
+    __passport_serial: str
+    __passport_number: str
+    __issued_at: datetime
+
     def __init__(self, passport_serial, passport_number, issued_at):
         self.__passport_serial = passport_serial
         self.__passport_number = passport_number
